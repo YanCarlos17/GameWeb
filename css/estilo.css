@@ -11,3 +11,7 @@
     border: 1px solid black;
     display: block;
 }
+#shell{
+    width: 20%;
+    display: none;
+}
