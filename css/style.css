@@ -5,15 +5,7 @@
 body{
     text-align: center;
 }
-#boton{
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-}
-#boton:hover{
-    background-color: rgb(22, 180, 182);
-    transition: all .3s;
-}
+
 #game{
     position: relative;
     max-width: 800px;
@@ -28,6 +20,5 @@ body{
     background-size: cover; */
 }
 #nave{
-    width: 20%;
     display: none;
 }
