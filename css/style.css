@@ -14,11 +14,13 @@ body{
     margin: 20px auto;
     border: 1px solid black;
     display: block;
-    /* background-image: url(../img/bgspace.jpeg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
 }
 #nave{
+    display: none;
+}
+.aliens{
+    display: none;
+}
+.bullet{
     display: none;
 }

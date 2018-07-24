@@ -1,6 +1,12 @@
 var canvas = document.getElementById('game');
+var alien = document.getElementsByClassName('aliens');
 var ctx = canvas.getContext('2d');
-
+var velocidad = 5;
+var direccion = velocidad;
+var iniciar = false;
+var x = 50;
+var y = 10;
+var intervalo;
 //Crear objeto de la nave
 var nave = {
     x:100,
@@ -74,10 +80,45 @@ function moverNave(){
         if(nave.y > limite) nave.y = limite;
     }
 }
+document.getElementById('boton').addEventListener('click', function(){
+    if(iniciar)
+    {
+        this.value = 'Iniciar';
+        window.clearInterval(intervalo);
+        iniciar = false;
+    }
+    else
+    {
+        this.value = 'Detener';
+        intervalo  = window.setInterval(function(){
+            moveAndDraw(canvas,ctx);
+        },32);
+        iniciar = true;
+    }
+});  
+
+function draw(canvas,ctx,x,y){
+    canvas.width = canvas.width;
+    ctx.fillStyle= 'lightblue';
+    ctx.arc(x,y,10,0,7);
+    ctx.fill();
+
+}
+function moveAndDraw(canvas,ctx){
+    if( y > (canvas.height - 20)) direccion =  -velocidad;
+    if( x > (canvas.width - 20)) direccion =  -velocidad;
+    if( y < (20)) direccion = velocidad;
+    if( x < (20)) direccion = velocidad;
+    y += direccion;
+    x += direccion;
+    draw(canvas,ctx,x,y);
+}
+
 function frameLoop(){
     moverNave();
     dibujarFondo();
     dibujarNave();
+    
 }
 //Ejecucion de funciones
 agregarEventosTeclado();
