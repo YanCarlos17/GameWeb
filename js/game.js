@@ -21,13 +21,13 @@ var fondo;
 //Definicion de funciones
 function loadMedia(){
     fondo = new Image();
-    fondo.src = 'img/bgspace.jpeg';
+    fondo.src = 'img/bgspace.jpg';
     fondo.onload = function(){
         var intervalo = window.setInterval(frameLoop,1000 / 55);
     }
 }
 function dibujarFondo(){
-    ctx.drawImage(fondo,0,0);
+    ctx.drawImage(fondo,-190,-250);
 }
 function dibujarNave(){
     var img = document.getElementById('nave');
