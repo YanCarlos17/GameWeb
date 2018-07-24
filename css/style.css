@@ -36,14 +36,14 @@ body{
    
 }
 .rotatePos{
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
+    transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotateX(360deg);
+    -o-transform: rotateX(360deg);
 }
 .rotateNeg{
-    transform: rotate(-360deg);
-    -webkit-transform: rotate(-360deg);
-    -moz-transform: rotate(-360deg);
-    -o-transform: rotate(-360deg);
+    transform: rotateX(-360deg);
+    -webkit-transform: rotateX(-360deg);
+    -moz-transform: rotateX(-360deg);
+    -o-transform: rotateX(-360deg);
 }
