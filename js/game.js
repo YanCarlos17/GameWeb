@@ -1,5 +1,7 @@
 var canvas = document.getElementById('game');
-var alien = document.getElementsByClassName('aliens');
+var alien = document.getElementById('alien01');
+
+
 var ctx = canvas.getContext('2d');
 var velocidad = 5;
 var direccion = velocidad;
@@ -7,13 +9,10 @@ var iniciar = false;
 var x = 50;
 var y = 10;
 var intervalo;
+//Crear objeto bala
+var shot = {x:100,y:0,width:1,height:20}
 //Crear objeto de la nave
-var nave = {
-    x:100,
-    y: canvas.height-20,
-    width:30,
-    height:15
-}
+var nave = {x:100,y:canvas.height-20,width:30,height:15}
 //GameKeyPad
 var teclado = {}
 //Variables para imagenes
@@ -28,6 +27,12 @@ function loadMedia(){
 }
 function dibujarFondo(){
     ctx.drawImage(fondo,-190,-250);
+}
+function dibujarBullet(){
+    var shot = document.getElementById('shot');
+    ctx.save();
+    ctx.drawImage(shot,0,0);
+    ctx.restore();
 }
 function dibujarNave(){
     var img = document.getElementById('nave');
@@ -117,6 +122,7 @@ function moveAndDraw(canvas,ctx){
 function frameLoop(){
     moverNave();
     dibujarFondo();
+    dibujarBullet();
     dibujarNave();
     
 }

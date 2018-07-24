@@ -15,6 +15,15 @@ body{
     border: 1px solid black;
     display: block;
 }
+#boton{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+#boton:hover{
+    background-color: rgb(22, 180, 182);
+    transition: all .3s;
+}
 
 #nave{
     display: none;
@@ -24,4 +33,5 @@ body{
 }
 .bullet{
     display: none;
+   
 }
