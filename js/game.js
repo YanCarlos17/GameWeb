@@ -1,5 +1,4 @@
 var canvas = document.getElementById('game');
-var img = document.getElementById('nave');
 var ctx = canvas.getContext('2d');
 
 //Crear objeto de la nave
@@ -25,6 +24,7 @@ function dibujarFondo(){
     ctx.drawImage(fondo,0,0);
 }
 function dibujarNave(){
+    var img = document.getElementById('nave');
     ctx.save();
     ctx.fillStyle = 'red';
     ctx.fillRect(nave.x,nave.y,nave.width,nave.height);
@@ -34,7 +34,6 @@ function agregarEventosTeclado(){
     //La tecla Presionada
     agregarEvento(document,"keydown", function(e){
         teclado[e.keyCode] = true;
-        console.log(e.keyCode);
     });
     //La tecla sin ser presionada
     agregarEvento(document,'keyup', function(e){
@@ -54,14 +53,25 @@ function agregarEventosTeclado(){
 function moverNave(){
     if(teclado[37]){
         //Move to left
-        nave.x -= 7;
+        nave.x -= 5;
         if(nave.x < 0) nave.x = 0;
     }
     if(teclado[39]){
         var limite = canvas.width - nave.width;
         //Move to Right
-        nave.x += 7;
+        nave.x += 5;
         if(nave.x > limite) nave.x = limite;
+    }
+    if(teclado[38]){
+        //Move to Up
+        nave.y -= 5;
+        if(nave.y < 0) nave.y = 0;
+    }
+    if(teclado[40]){
+        var limite = canvas.height - nave.height;
+        //Move to Down
+        nave.y += 5;
+        if(nave.y > limite) nave.y = limite;
     }
 }
 function frameLoop(){
