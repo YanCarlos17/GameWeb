@@ -1,26 +1,34 @@
 //DOM - DocumentObjectModel
-var velocidad=5;
-var direccion= velocidad;
-var inciar=false;
-var x = 50;
-var y = 10;
+var velocidad = 5, direccion = velocidad, inciar = false, x = 50, y = 20;
 var intervalo;
 
 window.addEventListener('load', init);
 function init(){
 var canvas = document.getElementById('micanvas');
+var ctx = canvas.getContext('2d');
+ctx.fillStyle='#db291b';
+ctx.arc(x,y,10,0,7);
+ctx.fill();
 
-var ctx = canvas.getContext('2d'); 
 document.getElementById('boton').addEventListener('click', function(){
     if(iniciar){
-        this.value='iniciar';
+        this.value= 'Iniciar';
         window.clearInterval(intervalo);
+        iniviar = false;
+    }
+    else{
+        this.value = 'Detener';
+        intervalo = window.setInterval(function(){
+            moveAndDraw(canvas,ctx);
+        },32);
+        iniciar = true;
     }
 });  
 }
 function draw(canvas, ctx,){
-    //canvas.width = canvas.width;
-    var img = document.getElementById('shell');
+    canvas.width = canvas.width;
+    ctx.arc(0,0,20,20,10);
+    ctx.style='#db291b';
     ctx.fill();
 
 }
