@@ -22,7 +22,7 @@ function loadMedia(){
     fondo = new Image();
     fondo.src = 'img/bgspace.jpg';
     fondo.onload = function(){
-        var intervalo = window.setInterval(frameLoop,1000 / 55);
+        var intervalo = window.setInterval(frameLoop, 1000 / 50);
     }
 }
 function dibujarFondo(){
@@ -85,10 +85,6 @@ function moverNave(){
         nave.y += 5;
         if(nave.y > limite) nave.y = limite;
     }
-    if(teclado[17]){
-        nave = document.addClass('rotatePos');
-    }
-    
 }
 document.getElementById('boton').addEventListener('click', function(){
     if(iniciar)
@@ -109,7 +105,7 @@ document.getElementById('boton').addEventListener('click', function(){
 
 function draw(canvas,ctx,x,y){
     canvas.width = canvas.width;
-    ctx.fillStyle= 'lightblue';
+    ctx.fillStyle= 'blue';
     ctx.arc(x,y,10,0,7);
     ctx.fill();
 
