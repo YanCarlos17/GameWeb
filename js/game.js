@@ -62,6 +62,7 @@ function agregarEventosTeclado(){
     }
 }
 function moverNave(){
+    
     if(teclado[37]){
         //Move to left
         nave.x -= 5;
@@ -84,6 +85,10 @@ function moverNave(){
         nave.y += 5;
         if(nave.y > limite) nave.y = limite;
     }
+    if(teclado[17]){
+        nave = document.addClass('rotatePos');
+    }
+    
 }
 document.getElementById('boton').addEventListener('click', function(){
     if(iniciar)
