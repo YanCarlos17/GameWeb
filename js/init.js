@@ -1,40 +1,47 @@
 //DOM - DocumentObjectModel
-var velocidad = 5, direccion = velocidad, inciar = false, x = 50, y = 20;
+var velocidad = 5;
+var direccion = velocidad;
+var iniciar = false;
+var x = 50;
+var y = 10;
 var intervalo;
 
 window.addEventListener('load', init);
 function init(){
-var canvas = document.getElementById('micanvas');
-var ctx = canvas.getContext('2d');
-ctx.fillStyle='#db291b';
-ctx.arc(x,y,10,0,7);
-ctx.fill();
+    var canvas = document.getElementById('micanvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle= 'lightblue';
+    ctx.arc(x,y,10,0,7);
+    ctx.fill();
 
-document.getElementById('boton').addEventListener('click', function(){
-    if(iniciar){
-        this.value= 'Iniciar';
+    document.getElementById('boton').addEventListener('click', function(){
+    if(iniciar)
+    {
+        this.value = 'Iniciar';
         window.clearInterval(intervalo);
-        iniviar = false;
+        iniciar = false;
     }
-    else{
+    else
+    {
         this.value = 'Detener';
-        intervalo = window.setInterval(function(){
+        intervalo  = window.setInterval(function(){
             moveAndDraw(canvas,ctx);
         },32);
         iniciar = true;
     }
 });  
 }
-function draw(canvas, ctx,){
+function draw(canvas,ctx,x,y){
     canvas.width = canvas.width;
-    ctx.arc(0,0,20,20,10);
-    ctx.style='#db291b';
+    ctx.fillStyle= 'lightblue';
+    ctx.arc(x,y,10,0,7);
     ctx.fill();
+    //ctx.style='#db291b';
 
 }
-function moveAndDraw(){
-    if( y > (canvas.height - 20)) direccion = -velocidad;
-    if(y < (20)) direccion = velocidad;
+function moveAndDraw(canvas,ctx){
+    if( y > (canvas.height - 20)) direccion =  (-velocidad);
+    if( y < (20)) direccion = velocidad;
     y += direccion;
     draw(canvas,ctx,x,y);
 }
